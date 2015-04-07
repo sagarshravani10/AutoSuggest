@@ -1,18 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define ALPHABET_SIZE = 26;
+#include <stdbool.h>
+#define ALPHA_SIZE 26
 
-typedef struct node
+typedef struct node //simplified linked list to implement the word data structure
 {
-    bool isEndOfWord;
-    struct node* next[ALPHABET_SIZE];
-}node1;
+    bool isEOW;
+    struct node *next[ALPHA_SIZE];
+}Node;
 
-Node *createNode()
+Node *createNode() //function to init the node
 {
-    
+    int i;
+    Node *newNode = malloc(sizeof(Node));
+    newNode->isEOW = false;
+    for(i=0; i<ALPHA_SIZE; i++)
+        newNode->next[i] = NULL;
+    return newNode;
 }
-int showMenu()
+
+int showMenu() //function to show the user the menu
 {
     int choice;
     printf("\nMenu\n----\n");
