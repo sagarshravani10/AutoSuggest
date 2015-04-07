@@ -19,6 +19,22 @@ Node *createNode() //function to init the node
     return newNode;
 }
 
+void insertWord(Node *root, char word[])
+{
+    int i, idx;
+    Node *tmp = root;
+    for(i=0; word[i]!='\0';i++)
+    {
+        idx = word[i] - 'a'; //to get the array index of alphabet in word[i]
+        if(tmp->next[idx] == NULL) //if char points to nothing
+            tmp->next[idx] = createNode(); //init the node
+        tmp = tmp->next[idx]; //move tmp to the next one
+    }
+    tmp->isEOW = true; //word ends, set isEOW to true
+    printf("\nInserted %s", word);
+    //return true;
+}
+
 int showMenu() //function to show the user the menu
 {
     int choice;
@@ -32,11 +48,18 @@ int showMenu() //function to show the user the menu
 int main()
 {
     int choice;
+    Node *root = createNode();
+    char word[100];
     while(1)
     {
         choice  = showMenu();
         switch (choice)
         {
+        case 1:
+            printf("\nEnter word: ");
+            scanf("%s", word); //array name points to first element of array
+            insertWord(root, word);
+            break;
         case 4:
             return 0;
         default:
@@ -45,4 +68,3 @@ int main()
     }
     return 0;
 }
-
