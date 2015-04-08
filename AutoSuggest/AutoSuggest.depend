@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1428390388 source:c:\users\sandeep\desktop\autosuggest\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1428390388 >
+
+1428502049 source:/Users/var/Downloads/AutoSuggest/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
