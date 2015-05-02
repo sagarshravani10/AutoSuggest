@@ -8,14 +8,14 @@ typedef struct n
 {
     bool isEOW;
     struct n *next[ALPHA_SIZE];
-}Node;
+} Node;
 
 Node *CreateNode()
 {
     int i;
     Node *newNode = malloc(sizeof(Node));
     newNode->isEOW = false;
-    for(i=0;i<ALPHA_SIZE;i++)
+    for(i=0; i<ALPHA_SIZE; i++)
         newNode->next[i] = NULL;
     return newNode;
 }
@@ -24,7 +24,7 @@ void insertWord(Node *root, char word[])
 {
     int i, idx;
     Node *tmp = root;
-    for(i=0;word[i]!='\0';i++)
+    for(i=0; word[i]!='\0'; i++)
     {
         idx = word[i] - 'a';
         if(tmp->next[idx] == NULL)
@@ -41,7 +41,7 @@ void PrintAllWords(Node *root, char prefix[])
         printf("\n%s", prefix);
 
     int i;
-    for(i=0;i<ALPHA_SIZE;i++)
+    for(i=0; i<ALPHA_SIZE; i++)
     {
         if(root->next[i] != NULL)
         {
@@ -59,7 +59,7 @@ void PrintAllWords(Node *root, char prefix[])
 void AutoSuggest(Node *root, char prefix[])
 {
     int i, idx;
-    for(i=0;prefix[i]!='\0';i++)
+    for(i=0; prefix[i]!='\0'; i++)
     {
         idx = prefix[i] - 'a';
         if(root->next[idx] == NULL)
